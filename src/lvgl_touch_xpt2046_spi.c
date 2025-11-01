@@ -3,7 +3,7 @@
 #include <esp32_smartdisplay.h>
 #include <esp_touch_xpt2046.h>
 #include <driver/spi_master.h>
-#include <driver/spi_common_internal.h>
+#include <esp_private/spi_common_internal.h>
 
 void xpt2046_lvgl_touch_cb(lv_indev_t *indev, lv_indev_data_t *data)
 {
@@ -81,7 +81,6 @@ lv_indev_t *lvgl_touch_init()
     indev->type = LV_INDEV_TYPE_POINTER;
     indev->user_data = touch_handle;
     indev->read_cb = xpt2046_lvgl_touch_cb;
-
     return indev;
 }
 
